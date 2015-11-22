@@ -1,7 +1,20 @@
+---
+title: "Short example"
+author: "Denis Agniel"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Short example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
 #--------------------------------------
 ## example simulation run 
 ##  data-generating functions in sim_fns.R
 #--------------------------------------
+library(smrtr)
 #----------------------------------------------
 ## setting parameters
 n <- 500
@@ -41,7 +54,6 @@ beta.star <- perturb.beta(num.ptb = n.ptb, y = y.mat, x = x, psd = psd)
 ## re-fit
 betahat.star <- matrix(-9, n.ptb, m*p)
 for (kk in 1:n.ptb) {
-  print(kk)
   psX <- with(psd, pseudoX)
   psY.new <- psX %*% beta.star[kk,]
   psX.tnew <- psX %*% diag(abs(beta.star[kk,]))
@@ -61,3 +73,5 @@ rejected.tests <- smrt.stepdown(beta = betahat,
                                 z.th = 0.95,
                                 p = p,
                                 m = m)
+beta.m[rejected.tests]
+```

@@ -1,5 +1,5 @@
 # sim fns
-#' Generate x values in {0,1,2}.
+#' Generate x values in \{0,1,2\}.
 #' 
 #' @param n Sample size.
 #' @param p.low Lower bound for minor allele frequency.
@@ -8,6 +8,7 @@
 #' @return x matrix
 #'
 #'@export
+
 generate.x <- function(n, p.low, p.high, p.x) {
   x.mat <- c()
   for (i in 1:p.x) {
@@ -47,6 +48,7 @@ rank.unique.vec <- function(v, k, ties = FALSE, ...) {
 #' @return y matrix
 #'
 #'@export
+
 generate.y <- function(x, beta.m, rho, n, m, k = n) {
   p <- dim(beta.m)[1]
   z <- matrix(rnorm(n*m), n, m)*sqrt((1-rho)) + sqrt(rho)*(rnorm(n))

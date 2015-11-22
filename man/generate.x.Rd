@@ -2,7 +2,7 @@
 % Please edit documentation in R/sim_fns.R
 \name{generate.x}
 \alias{generate.x}
-\title{Generate x values in {0,1,2}.}
+\title{Generate x values in \{0,1,2\}.}
 \usage{
 generate.x(n, p.low, p.high, p.x)
 }
@@ -19,6 +19,6 @@ generate.x(n, p.low, p.high, p.x)
 x matrix
 }
 \description{
-Generate x values in {0,1,2}.
+Generate x values in \{0,1,2\}.
 }
 
