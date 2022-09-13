@@ -41,7 +41,11 @@ fit.ini <- function(x, y, xname, yname = 'y', p) {
     fit <- lrm(as.formula('this.y ~ x'), data = data.frame(this.y, x))
     coef.ini <- fit$coef
     beta.ind <- grep(xname, names(coef.ini))
-    alpha.ind <- grep(yname, names(coef.ini))
+    if ('Intercept' %in% names(coef.ini)) {
+      alpha.ind <- grep('Intercept', names(coef.ini))
+    } else {
+      alpha.ind <- grep(yname, names(coef.ini))
+    }
     b0.ind <- (1:length(coef.ini))[-c(beta.ind, alpha.ind)]
     tmpalpha = coef.ini[alpha.ind]
     beta0 <- coef.ini[b0.ind]
